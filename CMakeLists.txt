@@ -3,9 +3,13 @@ project(GameGeometry)
 
 set_property(TARGET PROPERTY CXX_STANDARD 17)
 
-add_definitions(-DGLM_FORCE_SWIZZLE)
+set(GG_COMPILE_TESTS 1)
 
-include_directories(lib/glm/)
+if (GG_MAKE_GLM_CONVERSIONS)
+    include_directories(lib/glm/)
+    add_definitions(-DGLM_CONVERSIONS)
+endif()
+
 include_directories(include)
 
 set(SOURCE_FILES
@@ -16,6 +20,19 @@ set(SOURCE_FILES
         src/math/geometry/circle.cpp
         src/math/geometry/polygon2d.cpp
         src/math/math_util.cpp
-        src/math/geometry/collision2d.cpp)
+        src/math/geometry/collision2d.cpp
+        )
 
 add_library(GameGeometry ${SOURCE_FILES})
+
+if (GG_COMPILE_TESTS)
+    file(GLOB TEST_SOURCE_FILES test/*.cpp)
+
+    add_executable(GameGeometryTest ${TEST_SOURCE_FILES})
+
+    add_subdirectory(lib/googletest)
+    include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
+    include_directories(${gmock_SOURCE_DIR}/include ${gmock_SOURCE_DIR})
+    target_link_libraries(GameGeometryTest gtest gmock gtest_main)
+    target_link_libraries(GameGeometryTest GameGeometry)
+endif()
