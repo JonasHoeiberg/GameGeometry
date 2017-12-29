@@ -1,7 +1,7 @@
-cmake_minimum_required(VERSION 3.6)
+cmake_minimum_required(VERSION 3.8)
 project(GameGeometry)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+set_property(TARGET PROPERTY CXX_STANDARD 17)
 
 add_definitions(-DGLM_FORCE_SWIZZLE)
 

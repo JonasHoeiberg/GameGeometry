@@ -3,3 +3,7 @@
 //
 
 #include "math/vector_types.h"
+
+namespace Math {
+
+}
