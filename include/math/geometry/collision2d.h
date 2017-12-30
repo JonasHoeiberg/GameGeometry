@@ -6,27 +6,30 @@
 #define SERIOUSENGINEFORSERIOUSPEOPLE_COLLISION_H
 
 #include "shapes2d.h"
+#include "line_segment2d.h"
 
 namespace Math {
-    bool overlap(const Polygon2D &poly1, const Polygon2D &poly2);
-    bool overlap(const Polygon2D& poly, const Circle& circle);
-    bool overlap(const Polygon2D& poly, const Bounding2D& aabb);
+    bool intersect(const Polygon2D &poly1, const Polygon2D &poly2);
+    bool intersect(const Polygon2D& poly, const Circle& circle);
+    bool intersect(const Polygon2D& poly, const Bounding2D& aabb);
 
-    bool overlap(const Bounding2D& aabb, const Polygon2D& poly);
-    bool overlap(const Bounding2D& aabb, const Circle& circle);
-    bool overlap(const Bounding2D& aabb1, const Bounding2D& aabb2);
+    bool intersect(const Bounding2D& aabb, const Polygon2D& poly);
+    bool intersect(const Bounding2D& aabb, const Circle& circle);
+    bool intersect(const Bounding2D& aabb1, const Bounding2D& aabb2);
 
-    bool overlap(const Circle& circle, const Polygon2D& poly);
-    bool overlap(const Circle& circle1, const Circle& circle2);
-    bool overlap(const Circle& circle, const Bounding2D& aabb);
-
-    template<class T>
-    bool overlap(const T& shape1, const Shape2D& shape2);
+    bool intersect(const Circle& circle, const Polygon2D& poly);
+    bool intersect(const Circle& circle1, const Circle& circle2);
+    bool intersect(const Circle& circle, const Bounding2D& aabb);
 
     template<class T>
-    bool overlap(const Shape2D& shape2, const T& shape1);
+    bool intersect(const T& shape1, const Shape2D& shape2);
 
-    bool overlap(const Shape2D& shape1, const Shape2D& shape2);
+    template<class T>
+    bool intersect(const Shape2D& shape2, const T& shape1);
+
+    bool intersect(const Shape2D& shape1, const Shape2D& shape2);
+
+    bool intersect(const LineSegment2D& line1, const LineSegment2D& line2);
 }
 
 

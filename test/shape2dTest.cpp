@@ -43,9 +43,37 @@ TEST (Shape2DTest, Polygon2DTest) {
     EXPECT_ARRAY_EQUAL(poly, expected, 3);
     EXPECT_ARRAY_EQUAL(poly.toPolygon(), expected, 3);
 
-    //TODO: Transformation
+    EXPECT_FLOAT_EQ(poly.count(), 3);
+
+    auto tPoly = poly.transform(Matrix3x3f({
+            2.0f, 0.0f, 0.0f,
+            0.0f, 2.0f, 0.0f,
+            0.0f, 0.0f, 0.0f
+                                           }));
+
+    Vector2f expected2[3] = {
+            Vector2f(0.0f, 2.0f),
+            Vector2f(2.0f, 0.0f),
+            Vector2f(0.0f, 0.0f)
+    };
+
+    EXPECT_ARRAY_EQUAL(tPoly, expected2, 3);
 }
 
 TEST (Shape2DTest, ShapeSuperClassTest) {
+    Shape2D* shape = new Circle(Vector2f(0.0f, 0.0f), 5.0f);
 
+    EXPECT_EQ(shape->getType(), ShapeType::SHAPE_2D_CIRCLE);
+
+    EXPECT_FLOAT_EQ(shape->toPolygon().count(),360);
+
+    EXPECT_VECTOR2_NEAR(shape->toPolygon()[0], 5.0f, 0.0f, 10e-6);
+    EXPECT_VECTOR2_NEAR(shape->toPolygon()[90], 0.0f, 5.0f, 10e-6);
+    EXPECT_VECTOR2_NEAR(shape->toPolygon()[180], -5.0f, 0.0f, 10e-6);
+    EXPECT_VECTOR2_NEAR(shape->toPolygon()[270], 0.0f, -5.0f, 10e-6);
+
+    auto circle = dynamic_cast<Circle&>(*shape);
+
+    EXPECT_VECTOR2_EQ(circle.center, 0.0f, 0.0f);
+    EXPECT_FLOAT_EQ(circle.radius, 5.0f);
 }
