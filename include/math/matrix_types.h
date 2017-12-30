@@ -6,6 +6,8 @@
 #define SERIOUSENGINEFORSERIOUSPEOPLE_MATRIX_TYPES_H
 
 #include <cstdint>
+#include <memory.h>
+#include <array>
 
 #ifdef GLM_CONVERSIONS
 #include <glm/glm.hpp>
@@ -16,8 +18,19 @@ namespace Math {
 
     struct Matrix3x3f {
         Matrix3x3f() = default;
+        explicit Matrix3x3f(const std::array<float, 9>& array) {
+            memcpy(vals,&array[0],sizeof(float) * 9);
+        }
+
+        explicit Matrix3x3f(float val) {
+            std::fill_n(vals, 9, val);
+        }
 
         float& operator[](uint32_t index) {
+            return vals[index];
+        }
+
+        const float& operator[](uint32_t index) const {
             return vals[index];
         }
 
@@ -35,7 +48,21 @@ namespace Math {
             }
         #endif
 
-    private:
+        friend Matrix3x3f operator*(const Matrix3x3f& lhs, const Matrix3x3f& rhs) {
+            Matrix3x3f mat = Matrix3x3f(0.0f);
+
+            for (int i = 0; i < 9; i++) {
+                int k = (i / 3) * 3;
+                for (int j = i % 3; j < 9; j += 3) {
+                    mat[i] += lhs[k] * rhs[j];
+                    k++;
+                }
+            }
+
+            return mat;
+        }
+
+    protected:
         float vals[9] = {   1.0f, 0.0f, 0.0f,
                             0.0f, 1.0f, 0.0f,
                             0.0f, 0.0f, 1.0f};

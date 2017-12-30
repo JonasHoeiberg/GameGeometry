@@ -16,6 +16,10 @@ namespace Math {
     float dot(Vector2f vec1, Vector2f vec2) {
         return (vec1.x * vec2.x) + (vec1.y + vec2.y);
     }
+
+    float dot(Vector3f vec1, Vector3f vec2) {
+        return (vec1.x * vec2.x ) + (vec1.y + vec2.y) + (vec1.z * vec2.z);
+    }
 }
 
 #endif //SERIOUSENGINEFORSERIOUSPEOPLE_TRIG_FUNCTIONS_H

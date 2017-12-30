@@ -62,9 +62,9 @@ namespace Math {
         }
 
         friend Vector3f operator*(const Matrix3x3f& mat, const Vector3f& vec) {
-            auto vec1 = mat.getColumnVector(0) * vec;
-            auto vec2 =  mat.getColumnVector(1) * vec;
-            auto vec3 =  mat.getColumnVector(2) * vec;
+            auto vec1 = mat.getRowVector(0) * vec;
+            auto vec2 =  mat.getRowVector(1) * vec;
+            auto vec3 =  mat.getRowVector(2) * vec;
 
             return Vector3f(vec1.x + vec1.y + vec1.z,vec2.x + vec2.y + vec2.z,vec3.x + vec3.y + vec3.z);
         };
