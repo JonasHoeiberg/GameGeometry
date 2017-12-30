@@ -69,6 +69,10 @@ namespace Math {
             return Vector3f(vec1.x + vec1.y + vec1.z,vec2.x + vec2.y + vec2.z,vec3.x + vec3.y + vec3.z);
         };
 
+        friend bool operator==(const Vector3f& lhs, const Vector3f& rhs) {
+            return lhs.x == rhs.x && lhs.y == rhs.y && lhs.z == rhs.z;
+        }
+
 #ifdef GLM_CONVERSIONS
         explicit Vector3f(const glm::vec3 glmVec):x(glmVec.x),y(glmVec.y),z(glmVec.z){}
 #endif
@@ -115,6 +119,10 @@ namespace Math {
             lhs.y *= rhs;
 
             return lhs;
+        }
+
+        friend bool operator==(const Vector2f& lhs, const Vector2f& rhs) {
+            return lhs.x == rhs.x && lhs.y == rhs.y;
         }
 
 #ifdef GLM_CONVERSIONS

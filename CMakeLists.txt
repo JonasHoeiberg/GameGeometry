@@ -26,9 +26,9 @@ set(SOURCE_FILES
 add_library(GameGeometry ${SOURCE_FILES})
 
 if (GG_COMPILE_TESTS)
-    file(GLOB TEST_SOURCE_FILES test/*.cpp)
+    file(GLOB GG_TEST_SOURCE_FILES test/*.cpp)
 
-    add_executable(GameGeometryTest ${TEST_SOURCE_FILES})
+    add_executable(GameGeometryTest ${GG_TEST_SOURCE_FILES})
 
     add_subdirectory(lib/googletest)
     include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})

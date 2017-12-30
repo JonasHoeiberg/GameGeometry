@@ -6,7 +6,7 @@
 #include "math/geometry/bounding2d.h"
 
 Math::Polygon2D::Polygon2D(const std::vector<Math::Vector2f> &vertices):
-        vertices(std::move(vertices))
+        vertices(vertices)
 {
     if (!isConvex()) {
         throw std::exception();

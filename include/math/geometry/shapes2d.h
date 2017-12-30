@@ -6,8 +6,8 @@
 #define SERIOUSENGINEFORSERIOUSPEOPLE_SHAPES_H
 
 #include "shape2d.h"
+#include "polygon2d.h"
 #include "bounding2d.h"
 #include "circle.h"
-#include "polygon2d.h"
 
 #endif //SERIOUSENGINEFORSERIOUSPEOPLE_SHAPES_H

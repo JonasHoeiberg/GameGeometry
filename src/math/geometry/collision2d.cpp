@@ -3,6 +3,7 @@
 //
 
 #include "math/geometry/collision2d.h"
+#include "math/math_util.h"
 
 namespace Math {
 
