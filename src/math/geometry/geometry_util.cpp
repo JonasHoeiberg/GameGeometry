@@ -12,18 +12,19 @@
 namespace Math {
 
     Vector2f project(const Vector2f &point, const Line2D &line) {
-        return Vector2f();
-    }
+        Vector2f tPoint = point - line.p;
 
-    float tProject(const Vector2f &point, const Line2D &line) {
-        return 0;
-    }
-
-    Vector2f nearestApproach(const Vector2f &point, const Line2D &line) {
-        return Vector2f();
+        return (dot(tPoint, line.dir) * line.dir) + line.p;
     }
 
     Vector2f nearestApproach(const Vector2f &point, const LineSegment2D &lineSegment) {
-        return Vector2f();
+        Vector2f projection = project(point, lineSegment.getLine());
+
+        if (length2(projection) > length2(point - lineSegment.a) && length2(point - lineSegment.a) < length2(point - lineSegment.b))
+            return lineSegment.a;
+        else if (length2(projection) > length2(point - lineSegment.b) && length2(point - lineSegment.b) < length2(point - lineSegment.a))
+            return lineSegment.b;
+
+        return projection;
     }
 }

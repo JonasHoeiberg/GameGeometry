@@ -6,11 +6,9 @@
 #include "math/geometry/bounding2d.h"
 
 Math::Polygon2D::Polygon2D(const std::vector<Math::Vector2f> &vertices):
-        vertices(vertices)
+        vertices(vertices),
+        center(findCenter())
 {
-    if (!isConvex()) {
-        throw std::exception();
-    }
 }
 
 Math::Polygon2D Math::Polygon2D::transform(const Math::Matrix3x3f &mat) {
@@ -23,11 +21,6 @@ Math::Polygon2D Math::Polygon2D::transform(const Math::Matrix3x3f &mat) {
     }
 
     return Polygon2D(verts);
-}
-
-//TODO: Perform check
-bool Math::Polygon2D::isConvex() {
-    return true;
 }
 
 Math::Polygon2D Math::Polygon2D::toPolygon() const {
@@ -44,4 +37,14 @@ Math::Bounding2D Math::Polygon2D::toBoundingBox() const {
         bottom = std::max(bottom, vert.y);
     }
     return Math::Bounding2D(left, right, top, bottom);
+}
+
+Math::Vector2f Math::Polygon2D::findCenter() {
+    Vector2f aggregate = Vector2f(0.0f);
+
+    for(auto& vert : vertices) {
+        aggregate = aggregate + vert;
+    }
+
+    return aggregate = aggregate / vertices.size();
 }

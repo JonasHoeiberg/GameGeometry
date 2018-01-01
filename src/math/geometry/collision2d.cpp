@@ -4,6 +4,7 @@
 
 #include "math/geometry/collision2d.h"
 #include "math/math_util.h"
+#include "math/geometry/geometry_util.h"
 
 namespace Math {
 
@@ -12,6 +13,26 @@ namespace Math {
     }
 
     bool intersect(const Polygon2D &poly, const Circle &circle) {
+        for (int i = 0; i < poly.count(); i++) {
+            int j = (i + 1) % poly.count();
+
+            float radius2 = circle.radius * circle.radius;
+
+            float vert1Length = length2(poly[i] - circle.center);
+            float vert2Length = length2(poly[j] - circle.center);
+
+            if (vert1Length < radius2 && vert2Length < radius2) {
+                continue;
+            }
+
+            //TODO: Replace with overlap when it's available
+            Vector2f approach = nearestApproach(circle.center, LineSegment2D{.a = poly[i], .b = poly[j]});
+
+            if (length2(approach - circle.center) <= radius2) {
+                return true;
+            }
+        }
+
         return false;
     }
 
@@ -99,7 +120,7 @@ namespace Math {
         return false;
     }
 
-    bool Math::intersect(const LineSegment2D &line1, const LineSegment2D &line2) {
+    bool intersect(const LineSegment2D &line1, const LineSegment2D &line2) {
         return false;
     }
 }

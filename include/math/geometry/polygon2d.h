@@ -30,13 +30,15 @@ namespace Math {
             return vertices.size();
         }
 
+        const Vector2f center;
+
         Polygon2D toPolygon()const override;
         Bounding2D toBoundingBox()const override;
 
-        bool isConvex();
     private:
-        bool convex = false;
         const std::vector<Vector2f> vertices;
+
+        Vector2f findCenter();
     };
 }
 

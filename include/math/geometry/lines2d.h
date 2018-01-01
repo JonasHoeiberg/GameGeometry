@@ -5,17 +5,21 @@
 #ifndef GAMEGEOMETRY_LINESEGMENT_H
 #define GAMEGEOMETRY_LINESEGMENT_H
 
-#include "math/vector_types.h"
+#include <math_include.h>
 
 namespace Math {
-    struct LineSegment2D {
-        Vector2f a;
-        Vector2f b;
-    };
-
     struct Line2D {
         Vector2f p;
         Vector2f dir;
+    };
+
+    struct LineSegment2D {
+        Vector2f a;
+        Vector2f b;
+
+        inline Line2D getLine() const {
+            return Line2D{.p = a, .dir = normalize(b - a)};
+        }
     };
 }
 
