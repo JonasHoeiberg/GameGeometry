@@ -6,7 +6,7 @@
 #define SERIOUSENGINEFORSERIOUSPEOPLE_COLLISION_H
 
 #include "shapes2d.h"
-#include "line_segment2d.h"
+#include "lines2d.h"
 
 namespace Math {
     bool intersect(const Polygon2D &poly1, const Polygon2D &poly2);

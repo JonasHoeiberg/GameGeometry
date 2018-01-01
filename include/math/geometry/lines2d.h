@@ -8,9 +8,14 @@
 #include "math/vector_types.h"
 
 namespace Math {
-    class LineSegment2D {
+    struct LineSegment2D {
         Vector2f a;
         Vector2f b;
+    };
+
+    struct Line2D {
+        Vector2f p;
+        Vector2f dir;
     };
 }
 

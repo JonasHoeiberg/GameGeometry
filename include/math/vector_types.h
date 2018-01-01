@@ -69,6 +69,22 @@ namespace Math {
             return Vector3f(vec1.x + vec1.y + vec1.z,vec2.x + vec2.y + vec2.z,vec3.x + vec3.y + vec3.z);
         };
 
+        friend Vector3f operator/(Vector3f lhs, const Vector3f& rhs) {
+            lhs.x /= rhs.x;
+            lhs.y /= rhs.y;
+            lhs.z /= rhs.z;
+
+            return lhs;
+        }
+
+        friend Vector3f operator/(Vector3f lhs, float rhs) {
+            lhs.x /= rhs;
+            lhs.y /= rhs;
+            lhs.z /= rhs;
+
+            return lhs;
+        }
+
         friend bool operator==(const Vector3f& lhs, const Vector3f& rhs) {
             return lhs.x == rhs.x && lhs.y == rhs.y && lhs.z == rhs.z;
         }
@@ -117,6 +133,20 @@ namespace Math {
         friend Vector2f operator*(Vector2f lhs, float rhs) {
             lhs.x *= rhs;
             lhs.y *= rhs;
+
+            return lhs;
+        }
+
+        friend Vector2f operator/(Vector2f lhs, const Vector2f& rhs) {
+            lhs.x /= rhs.x;
+            lhs.y /= rhs.y;
+
+            return lhs;
+        }
+
+        friend Vector2f operator/(Vector2f lhs, float rhs) {
+            lhs.x /= rhs;
+            lhs.y /= rhs;
 
             return lhs;
         }

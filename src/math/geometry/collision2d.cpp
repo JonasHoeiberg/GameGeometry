@@ -24,7 +24,7 @@ namespace Math {
     }
 
     bool intersect(const Bounding2D &aabb, const Circle &circle) {
-        return false;
+        return intersect(aabb.toPolygon(), circle);
     }
 
     bool intersect(const Bounding2D &aabb1, const Bounding2D &aabb2) {

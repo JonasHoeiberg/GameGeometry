@@ -21,6 +21,7 @@ set(SOURCE_FILES
         src/math/geometry/polygon2d.cpp
         src/math/math_util.cpp
         src/math/geometry/collision2d.cpp
+        src/math/geometry/geometry_util.cpp
         )
 
 add_library(GameGeometry ${SOURCE_FILES})
