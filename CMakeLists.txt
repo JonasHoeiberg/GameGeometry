@@ -20,9 +20,9 @@ set(SOURCE_FILES
         src/math/geometry/circle.cpp
         src/math/geometry/polygon2d.cpp
         src/math/math_util.cpp
-        src/math/geometry/collision2d.cpp
+        src/math/geometry/intersections2d.cpp
         src/math/geometry/geometry_util.cpp
-        )
+        src/math/geometry/geometry2d.cpp include/math/geometry/geometry2d.h)
 
 add_library(GameGeometry ${SOURCE_FILES})
 

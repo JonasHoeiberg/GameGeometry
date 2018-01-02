@@ -18,8 +18,8 @@ namespace GG {
 
         Polygon2D transform(const Matrix3x3f& mat);
 
-        ShapeType getType() const override {
-            return ShapeType::SHAPE_2D_POLYGON;
+        ShapeType2D getShapeType() const override {
+            return ShapeType2D::SHAPE_2D_POLYGON;
         }
 
         const Vector2f& operator[](size_t index) const {

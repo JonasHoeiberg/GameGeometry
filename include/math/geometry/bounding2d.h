@@ -21,8 +21,8 @@ namespace GG {
         float top;
         float bottom;
 
-        ShapeType getType() const override {
-            return ShapeType::SHAPE_2D_AABB;
+        ShapeType2D getShapeType() const override {
+            return ShapeType2D::SHAPE_2D_AABB;
         }
 
         Polygon2D toPolygon() const override;

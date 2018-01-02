@@ -5,7 +5,7 @@
 #include "gtest/gtest.h"
 #include "globalTestDefinitions.h"
 #include "math/geometry/shapes2d.h"
-#include "math/geometry/collision2d.h"
+#include "math/geometry/intersections2d.h"
 #include "math_include.h"
 
 using namespace GG;

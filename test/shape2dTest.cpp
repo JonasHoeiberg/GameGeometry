@@ -63,7 +63,7 @@ TEST (Shape2DTest, Polygon2DTest) {
 TEST (Shape2DTest, ShapeSuperClassTest) {
     Shape2D* shape = new Circle(Vector2f(0.0f, 0.0f), 5.0f);
 
-    EXPECT_EQ(shape->getType(), ShapeType::SHAPE_2D_CIRCLE);
+    EXPECT_EQ(shape->getShapeType(), ShapeType2D::SHAPE_2D_CIRCLE);
 
     EXPECT_FLOAT_EQ(shape->toPolygon().count(),360);
 
