@@ -7,7 +7,7 @@
 
 #include "globalTestDefinitions.h"
 
-using namespace Math;
+using namespace GG;
 
 TEST (VectorTest, ConstructionAndAssignment) {
     Vector2f vec;

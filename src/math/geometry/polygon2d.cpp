@@ -6,13 +6,13 @@
 #include "math/geometry/polygon2d.h"
 #include "math/geometry/bounding2d.h"
 
-Math::Polygon2D::Polygon2D(const std::vector<Math::Vector2f> &vertices):
+GG::Polygon2D::Polygon2D(const std::vector<GG::Vector2f> &vertices):
         vertices(vertices)
 {
     center = findCenter();
 }
 
-Math::Polygon2D Math::Polygon2D::transform(const Math::Matrix3x3f &mat) {
+GG::Polygon2D GG::Polygon2D::transform(const GG::Matrix3x3f &mat) {
     std::vector<Vector2f> verts = std::vector<Vector2f>();
 
     verts.reserve(vertices.size());
@@ -24,11 +24,11 @@ Math::Polygon2D Math::Polygon2D::transform(const Math::Matrix3x3f &mat) {
     return Polygon2D(verts);
 }
 
-Math::Polygon2D Math::Polygon2D::toPolygon() const {
+GG::Polygon2D GG::Polygon2D::toPolygon() const {
     return *this;
 }
 
-Math::Bounding2D Math::Polygon2D::toBoundingBox() const {
+GG::Bounding2D GG::Polygon2D::toBoundingBox() const {
     float left = 1.0e10f, right = -1.0e10f, top = -1.0e10f, bottom = 1.0e10f;
 
     for (auto& vert : vertices) {
@@ -37,10 +37,10 @@ Math::Bounding2D Math::Polygon2D::toBoundingBox() const {
         top = std::max(top, vert.y);
         bottom = std::max(bottom, vert.y);
     }
-    return Math::Bounding2D(left, right, top, bottom);
+    return GG::Bounding2D(left, right, top, bottom);
 }
 
-Math::Vector2f Math::Polygon2D::findCenter() {
+GG::Vector2f GG::Polygon2D::findCenter() {
     Vector2f aggregate = Vector2f(0.0f);
     float totalWeight = 0.0f;
 
@@ -54,6 +54,6 @@ Math::Vector2f Math::Polygon2D::findCenter() {
     return aggregate;
 }
 
-const Math::Vector2f &Math::Polygon2D::getCenter() {
+const GG::Vector2f &GG::Polygon2D::getCenter() {
     return center;
 }

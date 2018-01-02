@@ -2,13 +2,13 @@
 // Created by jonas on 12/29/17.
 //
 
-#ifndef SERIOUSENGINEFORSERIOUSPEOPLE_COLLISION_H
-#define SERIOUSENGINEFORSERIOUSPEOPLE_COLLISION_H
+#ifndef GAMEGEOMETRY_COLLISION_H
+#define GAMEGEOMETRY_COLLISION_H
 
 #include "shapes2d.h"
 #include "lines2d.h"
 
-namespace Math {
+namespace GG {
     bool intersect(const Polygon2D &poly1, const Polygon2D &poly2);
     bool intersect(const Polygon2D& poly, const Circle& circle);
     bool intersect(const Polygon2D& poly, const Bounding2D& aabb);
@@ -33,4 +33,4 @@ namespace Math {
 }
 
 
-#endif //SERIOUSENGINEFORSERIOUSPEOPLE_COLLISION_H
+#endif //GAMEGEOMETRY_COLLISION_H

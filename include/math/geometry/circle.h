@@ -2,13 +2,13 @@
 // Created by jonas on 12/23/17.
 //
 
-#ifndef SERIOUSENGINEFORSERIOUSPEOPLE_CIRCLE_H
-#define SERIOUSENGINEFORSERIOUSPEOPLE_CIRCLE_H
+#ifndef GAMEGEOMETRY_CIRCLE_H
+#define GAMEGEOMETRY_CIRCLE_H
 
 #include "shape2d.h"
 #include "math/vector_types.h"
 
-namespace Math {
+namespace GG {
     struct Circle : public Shape2D {
         Circle(const Vector2f& center, float radius):center(center),radius(radius){}
 
@@ -23,4 +23,4 @@ namespace Math {
 }
 
 
-#endif //SERIOUSENGINEFORSERIOUSPEOPLE_CIRCLE_H
+#endif //GAMEGEOMETRY_CIRCLE_H

@@ -2,8 +2,8 @@
 // Created by jonas on 12/24/17.
 //
 
-#ifndef SERIOUSENGINEFORSERIOUSPEOPLE_CONVEX_POLYGON2D_H
-#define SERIOUSENGINEFORSERIOUSPEOPLE_CONVEX_POLYGON2D_H
+#ifndef GAMEGEOMETRY_CONVEX_POLYGON2D_H
+#define GAMEGEOMETRY_CONVEX_POLYGON2D_H
 
 #include "shape2d.h"
 #include "math/vector_types.h"
@@ -12,7 +12,7 @@
 
 //TODO: Replace std vector with own collection
 
-namespace Math {
+namespace GG {
     struct Polygon2D : public Shape2D {
         explicit Polygon2D(const std::vector<Vector2f>& vertices);
 
@@ -43,4 +43,4 @@ namespace Math {
     };
 }
 
-#endif //SERIOUSENGINEFORSERIOUSPEOPLE_CONVEX_POLYGON2D_H
+#endif //GAMEGEOMETRY_CONVEX_POLYGON2D_H

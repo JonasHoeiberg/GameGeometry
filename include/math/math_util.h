@@ -2,16 +2,18 @@
 // Created by jonas on 12/29/17.
 //
 
-#ifndef SERIOUSENGINEFORSERIOUSPEOPLE_TRIG_FUNCTIONS_H
-#define SERIOUSENGINEFORSERIOUSPEOPLE_TRIG_FUNCTIONS_H
+#ifndef GAMEGEOMETRY_TRIG_FUNCTIONS_H
+#define GAMEGEOMETRY_TRIG_FUNCTIONS_H
 
 #include "math/vector_types.h"
 #include <cmath>
 
-namespace Math {
+namespace GG {
     inline float cos(float rad) {return std::cos(rad);}
 
     inline float sin(float rad) {return std::sin(rad);}
+
+    inline float abs(float val) {return std::abs(val);}
 
     inline float dot(const Vector2f& vec1, const Vector2f& vec2) {
         return (vec1.x * vec2.x) + (vec1.y * vec2.y);
@@ -46,4 +48,4 @@ namespace Math {
     }
 }
 
-#endif //SERIOUSENGINEFORSERIOUSPEOPLE_TRIG_FUNCTIONS_H
+#endif //GAMEGEOMETRY_TRIG_FUNCTIONS_H

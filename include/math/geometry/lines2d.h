@@ -7,7 +7,7 @@
 
 #include <math_include.h>
 
-namespace Math {
+namespace GG {
     struct Line2D {
         Vector2f p;
         Vector2f dir;

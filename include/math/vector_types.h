@@ -2,8 +2,8 @@
 // Created by jonas on 12/23/17.
 //
 
-#ifndef SERIOUSENGINEFORSERIOUSPEOPLE_VECTOR_H
-#define SERIOUSENGINEFORSERIOUSPEOPLE_VECTOR_H
+#ifndef GAMEGEOMETRY_VECTOR_H
+#define GAMEGEOMETRY_VECTOR_H
 
 #ifdef GLM_CONVERSIONS
     #include <glm/glm.hpp>
@@ -11,7 +11,7 @@
 
 #include "matrix_types.h"
 
-namespace Math {
+namespace GG {
 
 
     struct Vector3f {
@@ -164,4 +164,4 @@ namespace Math {
     };
 }
 
-#endif //SERIOUSENGINEFORSERIOUSPEOPLE_VECTOR_H
+#endif //GAMEGEOMETRY_VECTOR_H

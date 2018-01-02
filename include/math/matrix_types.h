@@ -2,8 +2,8 @@
 // Created by jonas on 12/23/17.
 //
 
-#ifndef SERIOUSENGINEFORSERIOUSPEOPLE_MATRIX_TYPES_H
-#define SERIOUSENGINEFORSERIOUSPEOPLE_MATRIX_TYPES_H
+#ifndef GAMEGEOMETRY_MATRIX_TYPES_H
+#define GAMEGEOMETRY_MATRIX_TYPES_H
 
 #include <cstdint>
 #include <memory.h>
@@ -13,7 +13,7 @@
 #include <glm/glm.hpp>
 #endif //GLM_CONVERSIONS
 
-namespace Math {
+namespace GG {
     struct Vector3f;
 
     struct Matrix3x3f {
@@ -70,4 +70,4 @@ namespace Math {
 }
 
 
-#endif //SERIOUSENGINEFORSERIOUSPEOPLE_MATRIX_TYPES_H
+#endif //GAMEGEOMETRY_MATRIX_TYPES_H

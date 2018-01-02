@@ -6,7 +6,7 @@
 #include "math_include.h"
 #include "gtest/gtest.h"
 
-using namespace Math;
+using namespace GG;
 
 TEST (MatrixTest, ConstructorAndAssignment) {
     Matrix3x3f mat;

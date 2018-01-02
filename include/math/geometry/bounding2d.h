@@ -2,12 +2,12 @@
 // Created by jonas on 12/23/17.
 //
 
-#ifndef SERIOUSENGINEFORSERIOUSPEOPLE_BOUNDING2D_H
-#define SERIOUSENGINEFORSERIOUSPEOPLE_BOUNDING2D_H
+#ifndef GAMEGEOMETRY_BOUNDING2D_H
+#define GAMEGEOMETRY_BOUNDING2D_H
 
 #include "shape2d.h"
 
-namespace Math {
+namespace GG {
     struct Bounding2D : Shape2D {
         Bounding2D(float left, float right, float top, float bottom) {
             this->left = left;
@@ -31,4 +31,4 @@ namespace Math {
 }
 
 
-#endif //SERIOUSENGINEFORSERIOUSPEOPLE_BOUNDING2D_H
+#endif //GAMEGEOMETRY_BOUNDING2D_H

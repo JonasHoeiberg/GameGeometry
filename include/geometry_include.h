@@ -7,6 +7,7 @@
 
 #include "math/geometry/shapes2d.h"
 #include "math/geometry/lines2d.h"
+#include "math/geometry/collision2d.h"
 #include "math/geometry/geometry_util.h"
 
 #endif //GAMEGEOMETRY_GEOMETRY_INCLUDE_H

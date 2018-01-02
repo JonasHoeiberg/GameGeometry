@@ -6,9 +6,25 @@
 #include "math/math_util.h"
 #include "math/geometry/geometry_util.h"
 
-namespace Math {
+namespace GG {
 
     bool intersect(const Polygon2D &poly1, const Polygon2D &poly2) {
+        //TODO: Sweep for possible pairs
+
+        for (int i = 0; i < poly1.count(); i++) {
+            int j = (i + 1) % poly1.count();
+            for (int k = 0; k < poly2.count(); k++) {
+                int l = (k + 1) % poly2.count();
+
+                if (intersect(
+                        LineSegment2D{.a = poly1[i], .b = poly1[j]},
+                        LineSegment2D{.a = poly2[k], .b = poly2[l]}
+                )) {
+                    return true;
+                }
+            }
+        }
+
         return false;
     }
 
@@ -123,7 +139,22 @@ namespace Math {
         return false;
     }
 
-    bool intersect(const LineSegment2D &line1, const LineSegment2D &line2) {
-        return false;
+    bool intersect(const LineSegment2D &lineSegment1, const LineSegment2D &lineSegment2) {
+        Line2D line1 = lineSegment1.getLine();
+        Line2D line2 = lineSegment2.getLine();
+
+        if (abs(dot(line1.dir, line2.dir)) == 1.0f) {
+            return false;
+        }
+
+        if (!oppositeSides(line1.dir, lineSegment2.a - line1.p, lineSegment2.b - line1.p)) {
+            return false;
+        }
+
+        if (!oppositeSides(line2.dir, lineSegment1.a - line2.p, lineSegment1.b - line2.p)) {
+            return false;
+        }
+
+        return true;
     }
 }

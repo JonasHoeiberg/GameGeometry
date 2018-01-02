@@ -9,7 +9,7 @@
 #include "math_include.h"
 #include "math/geometry/lines2d.h"
 
-namespace Math {
+namespace GG {
 
     Vector2f project(const Vector2f &point, const Line2D &line) {
         Vector2f tPoint = point - line.p;

@@ -6,7 +6,7 @@
 #include "globalTestDefinitions.h"
 #include "math/geometry/shapes2d.h"
 
-using namespace Math;
+using namespace GG;
 
 TEST (Shape2DTest, Bounding2DTest) {
     Bounding2D aabb = Bounding2D(-1.0f, 1.0f, 1.0f, -1.0f);
@@ -19,10 +19,10 @@ TEST (Shape2DTest, Bounding2DTest) {
 TEST (Shape2DTest, CircleTest) {
     Circle circle = Circle(Vector2f(-2.0f, 3.0f),3.0f);
 
-    EXPECT_VECTOR2_EQ(circle.toPolygon()[0], 1.0f, 3.0f);
-    EXPECT_VECTOR2_EQ(circle.toPolygon()[90], -2.0f, 6.0f);
-    EXPECT_VECTOR2_EQ(circle.toPolygon()[180], -5.0f, 3.0f);
-    EXPECT_VECTOR2_EQ(circle.toPolygon()[270], -2.0f, 0.0f);
+    EXPECT_VECTOR2_NEAR(circle.toPolygon()[0], 1.0f, 3.0f, 1.0e-6);
+    EXPECT_VECTOR2_NEAR(circle.toPolygon()[90], -2.0f, 6.0f, 1.0e-6);
+    EXPECT_VECTOR2_NEAR(circle.toPolygon()[180], -5.0f, 3.0f, 1.0e-6);
+    EXPECT_VECTOR2_NEAR(circle.toPolygon()[270], -2.0f, 0.0f, 1.0e-6);
 
     EXPECT_AABB_EQ(circle.toBoundingBox(), -5.0f, 1.0f, 6.0f, 0.0f);
 }

@@ -5,7 +5,7 @@
 #include "math/matrix_types.h"
 #include "math/vector_types.h"
 
-namespace Math {
+namespace GG {
     Vector3f Matrix3x3f::getColumnVector(uint32_t index) const {
         return Vector3f{
                 .x = vals[index],

@@ -2,10 +2,10 @@
 // Created by jonas on 12/23/17.
 //
 
-#ifndef SERIOUSENGINEFORSERIOUSPEOPLE_SHAPE_H
-#define SERIOUSENGINEFORSERIOUSPEOPLE_SHAPE_H
+#ifndef GAMEGEOMETRY_SHAPE_H
+#define GAMEGEOMETRY_SHAPE_H
 
-namespace Math {
+namespace GG {
     enum ShapeType {
         SHAPE_2D_AABB,
         SHAPE_2D_CIRCLE,
@@ -24,4 +24,4 @@ namespace Math {
 }
 
 
-#endif //SERIOUSENGINEFORSERIOUSPEOPLE_SHAPE_H
+#endif //GAMEGEOMETRY_SHAPE_H

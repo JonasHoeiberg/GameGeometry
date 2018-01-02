@@ -8,7 +8,7 @@
 #include "math/geometry/collision2d.h"
 #include "math_include.h"
 
-using namespace Math;
+using namespace GG;
 
 Polygon2D noIntersectionPolygon = Polygon2D({
     Vector2f(-4.0f, 8.0f),
@@ -51,6 +51,13 @@ Bounding2D intersectionAABB2 = Bounding2D(
     1.0f
 );
 
+Bounding2D intersectionAABBCircle = Bounding2D(
+        1.5f,
+        4.0f,
+        -3.0f,
+        -6.0f
+);
+
 Circle noIntersectionCircle = Circle(
         Vector2f(-4.0f, -5.0f),
         3.0f
@@ -87,7 +94,7 @@ TEST (CollisionTest, CircleCircleIntersection) {
 }
 
 TEST (CollisionTest, CircleAABBIntersection) {
-    EXPECT_TRUE(intersect(intersectionCircle1, intersectionAABB1));
+    EXPECT_TRUE(intersect(intersectionCircle1, intersectionAABBCircle));
     EXPECT_FALSE(intersect(noIntersectionCircle, intersectionAABB1));
 }
 
