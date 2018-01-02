@@ -2,13 +2,14 @@
 // Created by jonas on 12/24/17.
 //
 
+#include <math_include.h>
 #include "math/geometry/polygon2d.h"
 #include "math/geometry/bounding2d.h"
 
 Math::Polygon2D::Polygon2D(const std::vector<Math::Vector2f> &vertices):
-        vertices(vertices),
-        center(findCenter())
+        vertices(vertices)
 {
+    center = findCenter();
 }
 
 Math::Polygon2D Math::Polygon2D::transform(const Math::Matrix3x3f &mat) {
@@ -41,10 +42,18 @@ Math::Bounding2D Math::Polygon2D::toBoundingBox() const {
 
 Math::Vector2f Math::Polygon2D::findCenter() {
     Vector2f aggregate = Vector2f(0.0f);
+    float totalWeight = 0.0f;
 
     for(auto& vert : vertices) {
-        aggregate = aggregate + vert;
+        aggregate = aggregate + (vert/length(vert));
+        totalWeight += length(vert);
     }
 
-    return aggregate = aggregate / vertices.size();
+    aggregate = aggregate / totalWeight;
+
+    return aggregate;
+}
+
+const Math::Vector2f &Math::Polygon2D::getCenter() {
+    return center;
 }

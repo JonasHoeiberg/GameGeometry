@@ -14,11 +14,11 @@ namespace Math {
     inline float sin(float rad) {return std::sin(rad);}
 
     inline float dot(const Vector2f& vec1, const Vector2f& vec2) {
-        return (vec1.x * vec2.x) + (vec1.y + vec2.y);
+        return (vec1.x * vec2.x) + (vec1.y * vec2.y);
     }
 
     inline float dot(const Vector3f& vec1, const Vector3f& vec2) {
-        return (vec1.x * vec2.x ) + (vec1.y + vec2.y) + (vec1.z * vec2.z);
+        return (vec1.x * vec2.x ) + (vec1.y * vec2.y) + (vec1.z * vec2.z);
     }
 
     inline float length2(const Vector2f& vec) {

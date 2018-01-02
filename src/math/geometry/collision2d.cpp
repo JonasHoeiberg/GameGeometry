@@ -23,12 +23,15 @@ namespace Math {
 
             if (vert1Length < radius2 && vert2Length < radius2) {
                 continue;
+            } else if (vert1Length > radius2 && vert2Length > radius2) {
+                //TODO: Replace with overlap when it's available
+                Vector2f approach = nearestApproach(circle.center, LineSegment2D{.a = poly[i], .b = poly[j]});
+
+                if (length2(approach - circle.center) <= radius2) {
+                    return true;
+                }
             }
-
-            //TODO: Replace with overlap when it's available
-            Vector2f approach = nearestApproach(circle.center, LineSegment2D{.a = poly[i], .b = poly[j]});
-
-            if (length2(approach - circle.center) <= radius2) {
+            else {
                 return true;
             }
         }

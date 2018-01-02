@@ -30,13 +30,14 @@ namespace Math {
             return vertices.size();
         }
 
-        const Vector2f center;
+        const Vector2f& getCenter();
 
         Polygon2D toPolygon()const override;
         Bounding2D toBoundingBox()const override;
 
     private:
         const std::vector<Vector2f> vertices;
+        Vector2f center;
 
         Vector2f findCenter();
     };

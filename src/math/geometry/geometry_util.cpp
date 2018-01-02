@@ -19,12 +19,20 @@ namespace Math {
 
     Vector2f nearestApproach(const Vector2f &point, const LineSegment2D &lineSegment) {
         Vector2f projection = project(point, lineSegment.getLine());
+        float pa = length2(lineSegment.a - point);
+        float pb = length2(lineSegment.b - point);
 
-        if (length2(projection) > length2(point - lineSegment.a) && length2(point - lineSegment.a) < length2(point - lineSegment.b))
+        if (    projection.x <= std::max(lineSegment.a.x, lineSegment.b.x) &&
+                projection.x >= std::min(lineSegment.a.x, lineSegment.b.x) &&
+                projection.y <= std::max(lineSegment.a.y, lineSegment.b.y) &&
+                projection.y >= std::min(lineSegment.a.y, lineSegment.b.y)) {
+            return projection;
+        }
+
+        if (pa < pb) {
             return lineSegment.a;
-        else if (length2(projection) > length2(point - lineSegment.b) && length2(point - lineSegment.b) < length2(point - lineSegment.a))
-            return lineSegment.b;
+        }
 
-        return projection;
+        return lineSegment.b;
     }
 }
