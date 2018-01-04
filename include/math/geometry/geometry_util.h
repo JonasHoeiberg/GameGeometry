@@ -12,8 +12,6 @@ namespace GG {
 
     Vector2f project(const Vector2f& point, const Line2D& line);
 
-    Vector2f nearestApproach(const Vector2f& point, const LineSegment2D& lineSegment);
-
     inline bool oppositeSides(const Vector2f& dir, const Vector2f& a, const Vector2f& b) {
         Vector2f orth = Vector2f(-dir.y, dir.x);
 

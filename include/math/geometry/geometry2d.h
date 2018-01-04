@@ -12,7 +12,7 @@ namespace GG {
         GEOMETRY_2D_LINE_SEGMENT
     };
 
-    class Geometry2D {
+    struct Geometry2D {
         virtual GeometryType2D getGeometryType() const=0;
     };
 }
