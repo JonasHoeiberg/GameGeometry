@@ -49,7 +49,9 @@ namespace GG {
         return dot(ab, ab) <= radius2;
     }
 
-    template<class T>
+    template<class T,
+            class = typename std::enable_if<std::is_base_of<Geometry2D, T>::value>::type
+    >
     bool intersect(const T& shape1, const Shape2D& shape2) {
         switch (shape2.getShapeType()) {
             case ShapeType2D::SHAPE_2D_POLYGON :  {
@@ -91,7 +93,9 @@ namespace GG {
         return false;
     }
 
-    template<class T>
+    template<class T,
+            class = typename std::enable_if<std::is_base_of<Geometry2D, T>::value>::type
+    >
     bool intersect(const T &geom1, const Geometry2D &geom2) {
         switch(geom2.getGeometryType()) {
             case GeometryType2D::GEOMETRY_2D_LINE : {

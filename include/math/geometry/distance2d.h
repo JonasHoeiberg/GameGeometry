@@ -30,14 +30,19 @@ namespace GG {
 
     //An invariance applies to all closestPoints functions:
     // point a of the returned item is a point on the first piece of geometry and point b is the point on the second.
-    template<class T, class U>
-    inline LineSegment2D distanceLineSegment(const T& geom1, const U& geom2) {
+    template<class T, class S,
+            class = typename std::enable_if<std::is_base_of<Geometry2D, T>::value>::type,
+            class = typename std::enable_if<std::is_base_of<Geometry2D, S>::value>::type
+    >
+    inline LineSegment2D distanceLineSegment(const T& geom1, const S& geom2) {
         LineSegment2D ls = distanceLineSegment(geom2, geom1);
 
         return LineSegment2D(ls.b, ls.a);
     };
 
-    template<class T>
+    template<class T,
+            class = typename std::enable_if<std::is_base_of<Geometry2D, T>::value>::type
+    >
     LineSegment2D distanceLineSegment(const T& geom1, const Geometry2D& geom2);
 
     LineSegment2D distanceLineSegment(const Geometry2D& geom1, const Geometry2D& geom2);
@@ -56,7 +61,9 @@ namespace GG {
     inline LineSegment2D distanceLineSegment(const Line2D& line, const Circle& circle);
 
     //Shape
-    template<class T>
+    template<class T,
+            class = typename std::enable_if<std::is_base_of<Geometry2D, T>::value>::type
+    >
     LineSegment2D distanceLineSegment(const T& shape1, const Shape2D& shape2);
 
     LineSegment2D distanceLineSegment(const Shape2D& shape1, const Shape2D& shape2);

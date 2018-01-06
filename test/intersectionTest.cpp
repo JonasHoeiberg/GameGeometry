@@ -73,37 +73,37 @@ Circle intersectionCircle2 = Circle(
         1.5f
 );
 
-TEST (CollisionTest, PolygonPolygonIntersection) {
+TEST (IntersectionTest, PolygonPolygonIntersection) {
     EXPECT_TRUE(intersect(intersectionPolygon1, intersectionPolygon2));
     EXPECT_FALSE(intersect(noIntersectionPolygon, intersectionPolygon1));
 }
 
-TEST (CollisionTest, PolygonAABBIntersection) {
+TEST (IntersectionTest, PolygonAABBIntersection) {
     EXPECT_TRUE(intersect(intersectionPolygon1, intersectionAABB1));
     EXPECT_FALSE(intersect(noIntersectionPolygon, intersectionAABB1));
 }
 
-TEST (CollisionTest, PolygonCircleIntersection) {
+TEST (IntersectionTest, PolygonCircleIntersection) {
     EXPECT_TRUE(intersect(intersectionPolygon1, intersectionCircle1));
     EXPECT_FALSE(intersect(noIntersectionPolygon, intersectionCircle1));
 }
 
-TEST (CollisionTest, CircleCircleIntersection) {
+TEST (IntersectionTest, CircleCircleIntersection) {
     EXPECT_TRUE(intersect(intersectionCircle1, intersectionCircle2));
     EXPECT_FALSE(intersect(noIntersectionCircle, intersectionCircle1));
 }
 
-TEST (CollisionTest, CircleAABBIntersection) {
+TEST (IntersectionTest, CircleAABBIntersection) {
     EXPECT_TRUE(intersect(intersectionCircle1, intersectionAABBCircle));
     EXPECT_FALSE(intersect(noIntersectionCircle, intersectionAABB1));
 }
 
-TEST (CollisionTest, AABBAABBIntersection) {
+TEST (IntersectionTest, AABBAABBIntersection) {
     EXPECT_TRUE(intersect(intersectionAABB1, intersectionAABB2));
     EXPECT_FALSE(intersect(noIntersectionAABB, intersectionAABB1));
 }
 
-TEST (CollisionTest, ArbitraryShapeIntersection) {
+TEST (IntersectionTest, ArbitraryShapeIntersection) {
     Shape2D* geometry[9] = {
             &noIntersectionPolygon,
             &noIntersectionAABB,

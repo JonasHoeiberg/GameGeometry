@@ -13,17 +13,18 @@
 
 namespace GG {
     //Some templating to ensure function parameter order doesn't matter
-    template<class T, class S>
+    template<class T, class S,
+            class = typename std::enable_if<std::is_base_of<Geometry2D, T>::value>::type,
+            class = typename std::enable_if<std::is_base_of<Geometry2D, S>::value>::type
+    >
     inline bool intersect(const T &geom1, const S &geom2)  {
-        //this is literally just here to make some sort of compile-time check that the function is called with geometry
-        geom1.getGeometryType();
-        geom2.getGeometryType();
-
         return intersect(geom2, geom1);
     }
 
     //Geometry
-    template<class T>
+    template<class T,
+            class = typename std::enable_if<std::is_base_of<Geometry2D, T>::value>::type
+    >
     bool intersect(const T& geom1, const Geometry2D& geom2);
 
     bool intersect(const Geometry2D& geom1, const Geometry2D& geom2);
@@ -93,7 +94,9 @@ namespace GG {
     }
 
     //Shape
-    template<class T>
+    template<class T,
+            class = typename std::enable_if<std::is_base_of<Geometry2D, T>::value>::type
+    >
     bool intersect(const T& shape1, const Shape2D& shape2);
 
     bool intersect(const Shape2D& shape1, const Shape2D& shape2);

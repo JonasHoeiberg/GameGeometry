@@ -10,6 +10,10 @@ if (GG_MAKE_GLM_CONVERSIONS)
     add_definitions(-DGLM_CONVERSIONS)
 endif()
 
+if (MINGW)
+    set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O3")
+endif()
+
 include_directories(include)
 
 set(SOURCE_FILES
