@@ -68,7 +68,7 @@ namespace GG {
         if (vert1Length < radius2 && vert2Length < radius2) {
             return false;
         } else if (vert1Length > radius2 && vert2Length > radius2) {
-            Vector2f approach = distanceVector(circle.center, lineSegment);
+            Vector2f approach = nearestPoint(circle.center, lineSegment);
 
             return length2(approach - circle.center) <= radius2;
         }

@@ -9,7 +9,7 @@
 #include "geometry_util.h"
 
 namespace GG {
-    inline Vector2f distanceVector(const Vector2f &point, const LineSegment2D &lineSegment) {
+    inline Vector2f nearestPoint(const Vector2f &point, const LineSegment2D &lineSegment) {
         Vector2f projection = project(point, lineSegment.getLine());
         float pa = length2(lineSegment.a - point);
         float pb = length2(lineSegment.b - point);
@@ -34,8 +34,8 @@ namespace GG {
             class = typename std::enable_if<std::is_base_of<Geometry2D, T>::value>::type,
             class = typename std::enable_if<std::is_base_of<Geometry2D, S>::value>::type
     >
-    inline LineSegment2D distanceLineSegment(const T& geom1, const S& geom2) {
-        LineSegment2D ls = distanceLineSegment(geom2, geom1);
+    inline LineSegment2D nearestPoints(const T& geom1, const S& geom2) {
+        LineSegment2D ls = nearestPoints(geom2, geom1);
 
         return LineSegment2D(ls.b, ls.a);
     };
@@ -43,42 +43,42 @@ namespace GG {
     template<class T,
             class = typename std::enable_if<std::is_base_of<Geometry2D, T>::value>::type
     >
-    LineSegment2D distanceLineSegment(const T& geom1, const Geometry2D& geom2);
+    LineSegment2D nearestPoints(const T& geom1, const Geometry2D& geom2);
 
-    LineSegment2D distanceLineSegment(const Geometry2D& geom1, const Geometry2D& geom2);
+    LineSegment2D nearestPoints(const Geometry2D& geom1, const Geometry2D& geom2);
 
     //Line segment
-    inline LineSegment2D distanceLineSegment(const LineSegment2D& lineSegment1, const LineSegment2D& lineSegment2);
-    inline LineSegment2D distanceLineSegment(const LineSegment2D& lineSegment, const Line2D& line);
-    LineSegment2D distanceLineSegment(const LineSegment2D& lineSegment, const Polygon2D& poly);
-    inline LineSegment2D distanceLineSegment(const LineSegment2D& lineSegment, const Bounding2D& bounding);
-    inline LineSegment2D distanceLineSegment(const LineSegment2D& lineSegment, const Circle& circle);
+    inline LineSegment2D nearestPoints(const LineSegment2D& lineSegment1, const LineSegment2D& lineSegment2);
+    inline LineSegment2D nearestPoints(const LineSegment2D& lineSegment, const Line2D& line);
+    LineSegment2D nearestPoints(const LineSegment2D& lineSegment, const Polygon2D& poly);
+    inline LineSegment2D nearestPoints(const LineSegment2D& lineSegment, const Bounding2D& bounding);
+    inline LineSegment2D nearestPoints(const LineSegment2D& lineSegment, const Circle& circle);
 
     //Line
-    inline LineSegment2D distanceLineSegment(const Line2D& line1, const Line2D& line2);
-    LineSegment2D distanceLineSegment(const Line2D& line, const Polygon2D& poly);
-    inline LineSegment2D distanceLineSegment(const Line2D& line, const Bounding2D& bounding);
-    inline LineSegment2D distanceLineSegment(const Line2D& line, const Circle& circle);
+    inline LineSegment2D nearestPoints(const Line2D& line1, const Line2D& line2);
+    LineSegment2D nearestPoints(const Line2D& line, const Polygon2D& poly);
+    inline LineSegment2D nearestPoints(const Line2D& line, const Bounding2D& bounding);
+    inline LineSegment2D nearestPoints(const Line2D& line, const Circle& circle);
 
     //Shape
     template<class T,
             class = typename std::enable_if<std::is_base_of<Geometry2D, T>::value>::type
     >
-    LineSegment2D distanceLineSegment(const T& shape1, const Shape2D& shape2);
+    LineSegment2D nearestPoints(const T& shape1, const Shape2D& shape2);
 
-    LineSegment2D distanceLineSegment(const Shape2D& shape1, const Shape2D& shape2);
+    LineSegment2D nearestPoints(const Shape2D& shape1, const Shape2D& shape2);
 
     //Polygon
-    LineSegment2D distanceLineSegment(const Polygon2D &poly1, const Polygon2D &poly2);
-    LineSegment2D distanceLineSegment(const Polygon2D& poly, const Circle& circle);
-    inline LineSegment2D distanceLineSegment(const Polygon2D& poly, const Bounding2D& aabb);
+    LineSegment2D nearestPoints(const Polygon2D &poly1, const Polygon2D &poly2);
+    LineSegment2D nearestPoints(const Polygon2D& poly, const Circle& circle);
+    inline LineSegment2D nearestPoints(const Polygon2D& poly, const Bounding2D& aabb);
 
     //Bounding box
-    inline LineSegment2D distanceLineSegment(const Bounding2D& aabb, const Circle& circle);
-    inline LineSegment2D distanceLineSegment(const Bounding2D& aabb1, const Bounding2D& aabb2);
+    inline LineSegment2D nearestPoints(const Bounding2D& aabb, const Circle& circle);
+    inline LineSegment2D nearestPoints(const Bounding2D& aabb1, const Bounding2D& aabb2);
 
     //Circle
-    LineSegment2D distanceLineSegment(const Circle& circle1, const Circle& circle2);
+    LineSegment2D nearestPoints(const Circle& circle1, const Circle& circle2);
 }
 
 #endif //GAMEGEOMETRY_DISTANCE2D_H
