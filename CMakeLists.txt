@@ -26,7 +26,7 @@ set(SOURCE_FILES
         src/math/math_util.cpp
         src/math/geometry/intersections2d.cpp
         src/math/geometry/geometry_util.cpp
-        src/math/geometry/geometry2d.cpp include/math/geometry/geometry2d.h include/math/geometry/distance2d.h)
+        src/math/geometry/geometry2d.cpp)
 
 add_library(GameGeometry ${SOURCE_FILES})
 
